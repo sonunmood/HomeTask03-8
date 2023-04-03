@@ -58,6 +58,9 @@ class ContactViewController: UIViewController {
         initUi()
         initData()
         tap()
+        
+        title = "Contacts"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func initData() {
@@ -148,7 +151,6 @@ extension ContactViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailInfoViewController()
-        title = "Contacts"
         navigationController?.pushViewController(vc, animated: true)
         vc.image = UIImage(named:contactList[indexPath.row].image)
         vc.name = contactList[indexPath.row].name
