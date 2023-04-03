@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "tom-holland-photo-jason-kempin-getty-images-801510482-profile.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

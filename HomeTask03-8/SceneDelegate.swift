@@ -13,10 +13,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+       
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        
+        let favoriteVC = FavoriteViewController()
+        let favTabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star"))
+        favoriteVC.tabBarItem = favTabBarItem
+        
+        let recentVC = ResentViewController()
+        let recentTabBarItem = UITabBarItem(title: "Resents", image: UIImage(systemName: "clock.fill"), selectedImage: UIImage(systemName: "clock.fill"))
+        recentVC.tabBarItem = recentTabBarItem
+        
+        let dialpadVC = DialpadViewController()
+        let dialpadTabBarItem = UITabBarItem(title: "Dialpad", image: UIImage(systemName: "circle.grid.3x3.fill"), selectedImage: UIImage(systemName: "circle.grid.3x3.fill"))
+        dialpadVC.tabBarItem = dialpadTabBarItem
+        
+        let contactVC = ContactViewController()
+        let navController = UINavigationController(rootViewController: contactVC)
+        let contactTabBarItem = UITabBarItem(title: "Contacts", image: UIImage(systemName: "person.fill"), selectedImage: UIImage(systemName: "person.fill"))
+        contactVC.tabBarItem = contactTabBarItem
+        
+        
+        
+        let voicemailVC = VoicemailViewController()
+        let voicemailTabBarItem = UITabBarItem(title: "Voicemail", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house"))
+        voicemailVC.tabBarItem = voicemailTabBarItem
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [favoriteVC, recentVC, navController, dialpadVC, voicemailVC]
+        tabBarController.tabBar.backgroundColor = .white
+        window.rootViewController = tabBarController
+        self.window = window
+        self.window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
